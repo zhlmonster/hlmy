@@ -133,7 +133,7 @@
       axisLabel: {
         color: "#fff"
       },
-      data: [10, 10, 100, 100, 100]
+      data: [10, 10, 20, 40, 50]
     }],
     series: [{
         // 第一组柱子（条状）
@@ -156,7 +156,7 @@
             return myColor[params.dataIndex];
           }
         },
-        data: [99, 34, 60, 78, 69],
+        data: [10, 10, 20, 40, 50],
         // 显示柱子内的百分比文字
         label: {
           show: true,
