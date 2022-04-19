@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/jquery.min.js"></script>
 		<style type=text/css>
 			#demo a {
 				width: 100%;
@@ -21,6 +22,43 @@
 			#demo a:hover {
 				color: #ff6600;
 			}
+			
+			#con-countDown {
+				color: #fff;
+				font-size: 0.64rem;
+			}
+			
+			#con-countDown span {
+				display: inline-block;
+				margin-right: 0.1rem;
+			}
+			
+			.gundong {
+				height: 1.5rem;
+				overflow: hidden;
+				width: 2rem;
+				margin: 1rem auto;
+				position: relative;
+			}
+			
+			.gundong ul {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100px;
+			}
+			
+			.gundong li {
+				height: 0.3rem;
+				line-height: 0.3rem;
+				color: #ccc;
+				font-size: 0.14rem;
+			}
+			
+			.gundong li.active {
+				color: #fff
+			}
+		</style>
 		</style>
 	</head>
 
@@ -85,8 +123,8 @@
           	时间：2022-03-10
           	描述：
           --><br />
-          
-					<div class="chart" >
+
+					<div class="chart">
 						<h2><b>健康管理</b></h2>
 						<div id="chart1" style="width:450px; height: 240px;"></div>
 					</div>
@@ -153,19 +191,19 @@
 				<div class="panel bar2">
 					<h2><b>种牛档案</b></h2>
 					<div class="chart">
-						<div  style="font-size: 19px; color: wheat; float: right;">
+						<div style="font-size: 19px; color: wheat; float: right;">
 
-						牛号：14982 
-						<br /> 性别：母
-						<br /> 胎次：1 
-						<br /> 年龄：2.5岁 
-						<br /> 品名：安格斯
-						<br /> 国籍：澳大利亚
-						<br /> 重量：600KG
-						<br /> 负责人：张三
-						<br /> 联系电话：***********
-						<br /> 位置：天津市滨海新区太平镇海禄牧场
-						<br /><br /></div>
+							牛号：14982
+							<br /> 性别：母
+							<br /> 胎次：1
+							<br /> 年龄：2.5岁
+							<br /> 品名：安格斯
+							<br /> 国籍：澳大利亚
+							<br /> 重量：600KG
+							<br /> 负责人：张三
+							<br /> 联系电话：***********
+							<br /> 位置：天津市滨海新区太平镇海禄牧场
+							<br /><br /></div>
 					</div>
 
 					<div class="panel-footer"></div>
@@ -182,33 +220,32 @@
 				<div class="panel bar2"><br />
 					<h2><b>提醒事件</b></h2>
 					<div class="chart">
-							<br />
-							<br />
-							<br />		
-						<div id="demo" style="overflow:hidden;height:132px;width:420px; border:1px; text-align: center; ">
-											
-							<div id="demo1">
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
-
-								<a href="#">牛号14982疫苗接种已完成</a>
+						
+						
+						<!--<div class="gundong">
+							<ul>
+								<li class="active">第一条</li>
+								<li>第二条</li>
+								<li>第三条</li>
+								<li>第四条</li>
+								<li>第五条</li>
+							</ul>
+						</div>-->
+						<br />
+						<br />
+						<div id="demo" style="overflow:hidden;height:500px;width:420px; border:1px; text-align: center; ">
+	
+							<div id="dvmq">
+								<ul style="list-style: none; color: red; font-size: 19PX;">
+									<li>牛号14982疫苗接种已完成</li>
+									<li>牛号14982疫苗接种已完成</li>
+									<li>牛号14982疫苗接种已完成</li>
+									<li>牛号14982疫苗接种已完成</li>
+									<li>牛号14982疫苗接种已完成</li>
+									<li>牛号14982疫苗接种已完成</li>
+								</ul>
 							</div>
-							<div id="demo2"></div>
+
 						</div>
 					</div>
 					<div class="panel-footer"></div>
@@ -237,40 +274,24 @@
 				</div>
 
 		</section>
-		
-		<script>
-			var speed = 40
-			var demo = document.getElementById("demo");
-			var demo2 = document.getElementById("demo2");
-			var demo1 = document.getElementById("demo1");
-			demo2.innerHTML = demo1.innerHTML //拷贝赋值
-			function Marquee() {
-				//第二列表高度 减去 外边框最顶部  小于等于 0
-				if(demo2.offsetTop - demo.scrollTop <= 0)
-					// 则外边框顶部滚动高度 去减去   第一列表高度顶部 ,或者去当滚动高度大于列表内容高度时恢复为0
-					demo.scrollTop -= demo1.offsetHeight
-				else {
-					//外边框+1
-					demo.scrollTop++
-				}
-			}
-			var MyMar = setInterval(Marquee, speed)
-			demo.onmouseover = function() {
-				clearInterval(MyMar)
-			}
-			demo.onmouseout = function() {
-				MyMar = setInterval(Marquee, speed)
-			}
-			console.log('demo2.offsettop', demo2.offsetTop) //191
-			console.log('demo.scrolltop', demo.scrollTop) //0
-			console.log('demo1.offsetHeight', demo1.offsetHeight) //178
-		</script>
 
+		<script>
+			//最新版本 文字滚动 终极版
+			function scroll_news() {
+				$(function() {
+					$('#dvmq li').eq(0).fadeOut('slow', function() {
+						$(this).clone().appendTo($(this).parent()).fadeIn('slow');
+						$(this).remove();
+					});
+				});
+			}
+			setInterval('scroll_news()', 1500);
+		</script>
 		<script src="js/flexible.js"></script>
 		<script src="js/echarts.min.js"></script>
 		<script src="js/jquery.js"></script>
 		<script src="js/china.js"></script>
-		<script type="text/javascript" src="js/zhexian.js" ></script>
+		<script type="text/javascript" src="js/zhexian.js"></script>
 		<!--
         	作者：offline
         	时间：2022-03-09
