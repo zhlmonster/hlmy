@@ -1,0 +1,89 @@
+.pd5 {
+	padding-top: 5px
+}
+
+.dis {
+	display: block
+}
+
+.undis {
+	display: none
+}
+
+.mqs {
+	margin: 10px auto;
+	width: 199px;
+	height: 479px;
+	padding-bottom: 10px;
+	border: 1px solid #DFDFDF
+}
+
+#mq {
+	width: 199px;
+	height: 60px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#mq ul {
+	width: 100%;
+}
+
+#mq ul li {
+	padding: 11px 10px 12px 10px;
+	height: 36px;
+	width: 179px;
+	overflow: hidden;
+	text-align: left;
+	border-bottom: 1px dashed #CCCCCC
+}
+
+#mq ul li .vo1,
+#mq ul li .vo2 {
+	height: 18px;
+	width: 100%;
+	overflow: hidden
+}
+
+#mq ul li .vo1 .name {
+	float: left;
+	width: 108px;
+	height: 18px;
+	line-height: 18px
+}
+
+#mq ul li .vo1 .name span {
+	float: left;
+	color: #ED701A;
+	width: 68px;
+	height: 18px;
+	line-height: 18px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#mq ul li .vo1 .name span a {
+	color: #ED701A
+}
+
+#mq ul li .vo1 .name em {
+	float: left;
+	line-height: 18px;
+	height: 18px;
+	font-style: normal
+}
+
+#mq ul li .vo1 .time {
+	float: right;
+	overflow: hidden;
+	width: 68px;
+	text-align: right;
+	line-height: 18px;
+	height: 18px;
+	color: #888888
+}
+
+#mq ul li .vo2 {
+	line-height: 18px;
+	text-overflow: ellipsis
+}
