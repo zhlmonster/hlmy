@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+		<style type="text/css">
+			#main {
+				width: 738px;
+				height: 400px;
+				float: initial;
+			}
+			
+			textStyle: {
+				fontSize: '20', color: '#56A5EC'
+			}
+			
+			axisLabel: {
+				show: true,
+				textStyle: {
+					color: '#ffffff'
+				}
+			}
+		</style>
+		<script type="text/javascript" src="js/echarts.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<div style="float: left; color: chartreuse; text-align: center; width: 100px; height: 60px; background-color: blueviolet"><br/>
+				<a href="index1.html" style=" text-decoration: none;">
+					<h2>返回首页</h2></a>
+			</div>
+			<h1>能源环境数据展示</h1>
+			<div class="show-time"></div>
+			<script>
+				var t = null;
+				t = setTimeout(time, 1000); //开始运行
+				function time() {
+					clearTimeout(t); //清除定时器
+					dt = new Date();
+					var y = dt.getFullYear();
+					var mt = dt.getMonth() + 1;
+					var day = dt.getDate();
+					var h = dt.getHours(); //获取时
+					var m = dt.getMinutes(); //获取分
+					var s = dt.getSeconds(); //获取秒
+					document.querySelector(".show-time").innerHTML =
+						"当前时间：" +
+						y +
+						"年" +
+						mt +
+						"月" +
+						day +
+						"日-" +
+						h +
+						"时" +
+						m +
+						"分" +
+						s +
+						"秒";
+					t = setTimeout(time, 1000); //设定定时器，循环运行
+				}
+			</script>
+		</header>
+
+		<section class="mainbox">
+			<!-- 左侧盒子 -->
+			<div class="column" style="float: left;">
+				<div class="panel pie">
+					<!--
+         	作者：offline
+         	时间：2022-03-10
+         	描述：
+         	<h2>种牛图片</h2>
+         --><br />
+					<div class="chart">
+						<a href="index1.html"><img src="images/geli.jpg" width="450px" height="250px"></a>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+				<br /><br /><br /><br /><br /><br /><br /><br />
+				<div class="panel pie">
+					<!--
+          	作者：offline
+          	时间：2022-03-10
+          	描述：
+          --><br />
+					<div class="chart" ;>
+						<!--
+                        	作者：offline
+                        	时间：2022-04-18
+                        	描述：background-color:white; opacity:0.8;
+                        -->
+						<div style=" height: 245px;">
+							<div id="container" style="height: 100%"></div>
+						</div>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+			<!-- 中间盒子 -->
+			<div class="column">
+				<!--<h1 style="color: red;">aaaaaaaaaaaa</h1>-->
+				<!-- 头部 no模块 -->
+
+				<!-- map模块 -->
+				<div class="map">
+					<div class="map1"></div>
+					<div class="map2"></div>
+					<div class="map3"></div>
+					<div class="chart"></div>
+					<div class="no">
+						<div class="no-hd">
+
+							&nbsp;
+							<div id="main">
+
+							</div>&nbsp;
+							<script type="text/javascript">
+								var myChart = echarts.init(document.getElementById("main"));
+								var option = {
+									//背景色 透明度
+									//backgroundColor: 'rgba(255,255,255,1)',
+
+									//图表标题
+									title: {
+										left: 20,
+										top: 10, //进行标题位置的微调，top:10 距离顶端10px
+										x: 'left', //标题的水平位置；left-左（默认）；right-右
+										y: 'top', //垂直位置：bottom-将标题置于表底；center-中间；top-上
+
+										//                    borderColor:'#999999', //标题边框的颜色
+										//                    borderWidth:2, //标题边框的宽度，默认是0-无边框
+
+										//修改标题字体
+										//                    textStyle:{
+										//                        fontSize:20,
+										//                        color:'cornflowerblue',
+										//                    },
+										//注意：title一定要在text之前
+										text: '牧场温度数据',
+										textStyle: {
+											//文字颜色
+											color: '#ccc'
+										}
+										//                    subtext: '虚构天气' //小标题
+									},
+
+									//图例组件
+									//默认位置是中间
+									//大部分属性都和title类似
+									legend: {
+										//                    x:'center',
+										//                    y:'bottom',
+										//                    orient:'vertical' //布局方式，默认是水平布局；vertical-垂直布局
+									},
+
+									//提示框
+									tooltip: {
+										backgroundColor: "cornflowerblue" //设置背景色
+									},
+
+									//工具箱
+									toolbox: {
+										//                    padding:35,   //内边距
+										right: 25,
+										top: 10,
+										show: true,
+										//结构-样式图
+										feature: {
+											//mark是辅助线开关
+											mark: {
+												//                            show:true
+											},
+											//数据可视化标签
+											dataView: {
+												//                            show:true,
+												readOnly: false //可修改数据
+											},
+											saveAsImage: {}, //下载标签
+											magicType: {
+												type: ['line', 'bar']
+											} //可更换图表样式标签
+										}
+									},
+
+									//视觉映射组件
+									visualMap: {
+										right: 2,
+										bottom: 10,
+										//有几个花括号就代表分成几个区域显示
+										pieces: [{
+												gt: -10,
+												lte: 0,
+												color: "#096"
+											},
+											{
+												gt: 0,
+												lte: 10,
+												color: "#ffde33"
+											},
+											{
+												gt: 10,
+												lte: 20,
+												color: "#ff9933"
+											},
+											{
+												gt: 20,
+												lte: 30,
+												color: "red"
+											}
+										]
+									},
+
+									//图表位置
+									grid: {
+										x: 50,
+										y: 50,
+										x2: 100,
+										y2: 50
+									},
+
+									xAxis: [{
+										data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+										axisLine: {
+											lineStyle: {
+												color: '#FFFFFF',
+												width: 1, //这里是为了突出显示加上的  
+											}
+										}
+
+									}],
+									yAxis: {
+										axisLine: {
+											lineStyle: {
+												color: '#FFFFFF',
+												width: 1, //这里是为了突出显示加上的  
+											}
+										}
+									},
+									//图标核心内容
+									series: [{
+											name: '最高气温',
+											type: 'line',
+											color: 'red',
+											markLine: {
+												data: [{
+													type: 'average',
+													name: '平均值'
+												}]
+											},
+											markPoint: {
+												data: [{
+													type: 'max',
+													name: '最大值'
+												}, {
+													type: 'min',
+													name: '最小值'
+												}]
+											},
+											data: [25, 22, 21, 26, 22, 22, 25]
+										},
+										{
+											name: '最低气温',
+											type: 'line',
+											color: 'green',
+											markLine: {
+												data: [{
+													type: 'average',
+													name: '平均值'
+												}]
+											},
+											markPoint: {
+												data: [{
+													type: 'max',
+													name: '最大值'
+												}, {
+													type: 'min',
+													name: '最小值'
+												}]
+											},
+											data: [15, 17, 18, 17, 16, 20, 19]
+										}
+										/*,
+										                {
+										                    name:'aaaa',
+										                    type:'line',
+										                    color:'red',
+										                    markLine:{data:[{type:'average',name:'平均值'}]},
+										                    markPoint:{data:[{type:'max',name:'最大值'},{type:'min',name:'最小值'}]},
+										                    data:[3,20,18,-4,20,6,3]
+										                }*/
+									]
+								};
+								myChart.setOption(option);
+
+								//动画
+							</script>
+
+						</div>
+						<br />
+
+						<div class="no-hd" style="font-size: 22px; color: wheat; float: left;">
+							<br />
+							<br />
+							<br />
+
+							<h1 style="  font-size: 60px; "><a href="index1.html" style="text-decoration: none; color: gainsboro;">海禄牧业 （天津）有限公司</a></h1>
+							<h2 align="center"> </h2>
+							<br />
+							<br />
+							<br />
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- 右侧盒子 -->
+			<div class="column" style="color: wheat;">
+
+				<div class="panel bar2">
+					<h2><b>牧场气象数据</b></h2>
+					<div class="chart">
+						<div id="he-plugin-standard" sty></div>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<div>
+					<div class="column" style="color: wheat;">
+
+						<div class="panel bar2"><br />
+							
+							<div class="chart">
+								<h2><b>牧场湿度数据</b></h2>
+								<div style=" height: 250px;">
+									<div id="shidu" style="height: 100%"></div>
+								</div>
+							</div>
+							<div class="panel-footer"></div>
+						</div>
+
+						<div>
+							<!--
+                    	作者：offline
+                    	时间：2022-03-10
+                    	描述：
+                    	<br />
+                	产地及分布：<br />
+安格斯肉牛是英国古老的肉用品种之一。原产于苏格兰北部的阿佰丁，金卡和安格斯郡．并因此得名。 1892 年良种登记，宜布良种肉用品种。与英国的卷毛加罗韦牛亲缘关系密切。目前分布于世界各地，是英国、美国、加拿大、新西兰和阿根廷等国的主要牛种之一，在澳大利亚、南非、巴西、丹安麦、娜威、瑞典、西班牙、德国等国有一定的数量分布。<br /><br />
+
+外貌特征：<br />
+安格斯牛以被毛黑色和无角为其重要特征，故也称其为无角黑牛。部分牛只腹下，脐部和乳房部有白筑，其出现率约占 40 % ，不作为品种缺陷。红色安格斯牛被毛红色，与黑色安格斯牛在体躯结构和生产性能方面没有大的差异：安格斯牛体型较小，体驱低矮，体质紧凑、结实。头小而方正，头额部宽而额顶突起，眼器大而明亮，灵活有神。瞒宽阔，口裂较深，上下唇整齐，梁正直，鼻孔较大，鼻镜较宽，颜色为黑色。颈中等长且较厚，垂皮明显，背线平直，腰荐丰满，体躯宽深，呈圆简状，四肢短而直，且两前肢、两后肢间距均较宽，体形星长方形。全身肌亮滋润。肉丰满，体驱平滑丰润楼和尻部肌肉发达，大腿肌肉延伸到飞节。皮肤松软，富弹性，被毛光亮滋润。<br /><br />
+生产性能：<br />
+安格斯犊牛平均初生重25一32公斤，具有良好的增重性能，日增重 950 一 1 000 克。安格斯牛成年公牛平均体重为700 一900公斤，高的可达1000 公斤，母牛 500一600公斤。成年体高公母牛分别为 138 厘米和 122 厘米。<br /><br />
+
+产肉性能方面：<br />
+肉用性能良好，表现早熟易肥、饲料转化率高，服体品质好、净肉率高、大理石花纹明显，屠宰率 60 ％一 65 ％。<br /><br />
+
+产奶性能方面：<br />
+安格斯母牛乳房结构紧凑，泌乳力强，产乳爪量639 公斤，乳脂率 3 . 94 ％。该品种早熟易配、性能温和、易管理、体质紧凑、结实、易放牧、肉质好、出肉率高。 <br /><br />
+                    -->
+
+						</div>
+
+					</div>
+
+		</section>
+
+		<script src="js/flexible.js"></script>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/china.js"></script>
+		<!--
+        	作者：offline
+        	时间：2022-03-09
+        	描述：
+        	<script src="js/index.js"></script>
+        -->
+		<!--
+        	作者：offline
+        	时间：2022-04-14
+        	描述：天气组件
+        -->
+		<script>
+			WIDGET = {
+				"CONFIG": {
+					"layout": "1",
+					"width": "430",
+					"height": "200",
+					"background": "1",
+					"dataColor": "FFFFF",
+					"borderRadius": "5",
+					"key": "9fd80109c591432ab3a2e34a6ca090e8"
+				}
+			}
+		</script>
+		<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
+		<script type="text/javascript">
+			var dom = document.getElementById("container");
+			var myChart = echarts.init(dom);
+			var app = {};
+
+			var option;
+
+			option = {
+				//color:{
+				//	color:'rgba(188, 214, 141, 0.1))'
+				//},
+				title: {
+					text: '能耗数据',
+					left: 'center',
+					textStyle: {
+						//文字颜色
+						color: '#ccc'
+					}
+
+				},
+				tooltip: {
+					trigger: 'item'
+				},
+				legend: {
+					orient: 'vertical',
+					left: 'left'
+				},
+				series: [{
+					name: 'Access From',
+					type: 'pie',
+					radius: '50%',
+
+					data: [{
+							value: 1048,
+							name: '暖通',
+							dataStyle: {
+								//文字颜色
+								color: '#ccc'
+							},
+							//color:['#CCC'],
+							//textStyle:{
+							//	color:'#CCC',
+							//}
+
+							//	itemStyle:{name:{color:'#7FAE90'}},
+
+						},
+						{
+							value: 735,
+							name: '生活热水'
+						},
+						{
+							value: 580,
+							name: '照明'
+						},
+						{
+							value: 484,
+							name: '办公'
+						},
+						{
+							value: 300,
+							name: '动力'
+						},
+						{
+							value: 300,
+							name: '其他'
+						},
+						{
+							value: 300,
+							name: '数据机房'
+						},
+						{
+							value: 300,
+							name: '厨房'
+						}
+					],
+
+					emphasis: {
+						itemStyle: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(30, 0, 0, 0.5)'
+						}
+					}
+				}]
+
+			};
+
+			if(option && typeof option === 'object') {
+				myChart.setOption(option);
+			}
+		</script>
+
+		<script type="text/javascript">
+			var dom = document.getElementById("shidu");
+			var myChart = echarts.init(dom);
+			var app = {};
+
+			var option;
+
+			option = {
+				xAxis: {
+					type: 'category',
+					data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+					axisLine: {
+						lineStyle: {
+							color: '#FFFFFF',
+							width: 1, //这里是为了突出显示加上的  
+						}
+					}
+				},
+				yAxis: {
+					type: 'value',
+					axisLine: {
+						lineStyle: {
+							color: '#FFFFFF',
+							width: 1, //这里是为了突出显示加上的  
+						}
+					}
+				},
+				series: [{
+					data: [120, 200, 150, 80, 70, 110, 130],
+					type: 'bar',
+					showBackground: true,
+					backgroundStyle: {
+						color: 'rgba(0, 0, 255, 1)'
+					}
+				}]
+			};
+
+			if(option && typeof option === 'object') {
+				myChart.setOption(option);
+			}
+		</script>
+		<script type="text/javascript" src="js/internetpanduan.js" ></script>
+		<script src="js/jquery.min.js"></script>
+	</body>
+
+</html>

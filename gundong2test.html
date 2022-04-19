@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>无限循环滚动</title>
+      <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            div{
+                width: 600px;
+                height: 250px;
+                margin: 100px auto;
+                border: 2px solid black;                 
+            }
+
+            ul{
+                list-style: none;
+                width: 2500px;
+                height: 300px;
+//这个是当你鼠标移入的时候会暂停，而其他的图片背景颜色都是半透明的黑色的，
+//当前的是正常显示的图片
+                background: black;              
+            }
+            ul li{
+                float: left;
+            }
+            /*其实就是把四个图片放到一个ul列表中，相当于放到一起，然后一起在div中进行滚动*/
+        </style>
+  
+</head>
+<body>
+        <div>
+            <ul>
+                <li><img src="images/bg.jpg" /> </li>
+                <li><img src="images/geli.jpg" /> </li>
+                <li><img src="img/003.jpg" /> </li>
+                <li><img src="img/004.jpg" /> </li>
+                <li><img src="img/002.jpg" /> </li>
+                <li><img src="img/001.jpg" /> </li>
+            </ul>
+        </div>
+        <script>
+            $(function(){
+
+                //1.需要先让图片滚动起来
+                var offSet = 0;
+                var timer 
+                function autoPlay(){
+                    //这里是添加一个定时器，
+                    timer= setInterval(function(){
+                    //每次设置图片向左移动的距离，
+                    offSet += -50;
+                    //选中所有的ul（其实也就是所有的图片拼接一块就相当于是一个ul）
+                    $("ul").css("margin-left",offSet);
+                    //这里是判断图片左移的当前位置是不是到了图片的末尾的值，然后把图片拉回来重新运动
+                    if(offSet<=-1200){
+                        offSet =0 ;
+                    }
+                },60);
+
+            }
+                //2.需要监听li的移入和移出事件,这个可以连续放连个回调函数
+                $("li").hover(function(){
+                    //鼠标放上去的时候清除定时器
+                    clearInterval(timer);
+                    //给非当前设置蒙版（也就是除了当你选中的其他的所有的图片）
+                    $(this).siblings().fadeTo(100,0.5);
+                    //去除当前选中的蒙版
+                    $(this).fadeTo(100,1);
+                },function(){
+                    //移出的时候
+                    autoPlay();
+                    //当鼠标移除的时候去除所有的蒙版
+                    $("li").fadeTo(100,1);
+                })
+
+            })
+        </script>   
+    </body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据可视化</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- 头部 -->
+    <header>
+      <h1>海禄牧业数字运营平台</h1>
+      <div class="show-time"></div>
+      <script>
+        var t = null;
+        t = setTimeout(time, 1000); //开始运行
+        function time() {
+          clearTimeout(t); //清除定时器
+          dt = new Date();
+          var y = dt.getFullYear();
+          var mt = dt.getMonth() + 1;
+          var day = dt.getDate();
+          var h = dt.getHours(); //获取时
+          var m = dt.getMinutes(); //获取分
+          var s = dt.getSeconds(); //获取秒
+          document.querySelector(".show-time").innerHTML =
+            "当前时间：" +
+            y +
+            "年" +
+            mt +
+            "月" +
+            day +
+            "日-" +
+            h +
+            "时" +
+            m +
+            "分" +
+            s +
+            "秒";
+          t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+      </script>
+    </header>
+
+    <!-- 页面主体 -->
+    <section class="mainbox">
+      <!-- 左侧盒子 -->
+      <div class="column">
+        <div class="panel bar">
+          <h2>全国合作社存栏数</h2>
+          <!-- 图表放置盒子 -->
+          <div class="chart"></div>
+          <!-- 伪元素绘制盒子下边角 -->
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel line">
+          <h2>牛群变化
+            <a class="a-active" href="javascript:;">2020</a>
+            <a href="javascript:;">2021</a>
+          </h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel pie">
+          <h2>牛群分布</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <!-- 中间盒子 -->
+      <div class="column">
+        <!-- 头部 no模块 -->
+        <div class="no">
+          <div class="no-hd">
+            <ul>
+            	<!--
+                	作者：offline
+                	时间：2022-03-09
+                	描述：id选择器被赋值
+                -->
+              <li id="num1">12434</li>
+              <li id="num2">10983</li>
+            </ul>
+          </div>
+          <div class="no-bd">
+            <ul>
+              <li>全群存栏牛头数</li>
+              <li>泌乳牛头数</li>
+            </ul>
+          </div>
+        </div>
+        <!-- map模块 -->
+        <div class="map">
+          <div class="map1"></div>
+          <div class="map2"></div>
+          <div class="map3"></div>
+          <div class="chart"></div>
+        </div>
+      </div>
+      <!-- 右侧盒子 -->
+      <div class="column">
+        <div class="panel bar2">
+          <a href="qixiang.html"><h2 >能源环境数据</h2></a>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel line2">
+          <h2>产奶量</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+        <div class="panel pie2">
+          <h2>种牛信息档案</h2>
+          <div class="chart"">
+          	<a href="sosuo.html"><img src="images/syn.jpg" width="450px" height="200px"></a>
+          </div>
+          <div class="panel-footer">
+          	
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/flexible.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <!-- 引入china.js 完成地图模块 -->
+    <script src="js/china.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+  <!--
+  	作者：offline
+  	时间：2022-03-08
+  	描述：数字跳动
+  -->
+  <script type="text/javascript">
+		var numBox1 = document.getElementById('num1');
+		/**
+		 * 数字滚动
+		 * @param {Object} num         开始值
+		 * @param {Object} maxNum    最大值,最终展示的值
+		 */
+		function numRunFun1(num1, maxNum1) {
+			var numText1 = num1;
+			var golb1; // 为了清除requestAnimationFrame
+			function numSlideFun1() {
+				numText1 += 70; // 速度的计算可以为小数
+				if(numText1 >= maxNum1) {
+					numText1 = maxNum1;
+					cancelAnimationFrame(golb1);
+				} else {
+					golb1 = requestAnimationFrame(numSlideFun1);
+				}
+				numBox1.innerHTML = ~~(numText1)
+
+			}
+			numSlideFun1();
+		}
+		// 运行
+		numRunFun1(20000, 28888)
+		
+	</script>
+	
+    	  <script type="text/javascript">
+		var numBox2 = document.getElementById('num2');
+		/**
+		 * 数字滚动
+		 * @param {Object} num         开始值
+		 * @param {Object} maxNum    最大值,最终展示的值
+		 */
+		function numRunFun2(num2, maxNum2) {
+			var numText2 = num2;
+			var golb2; // 为了清除requestAnimationFrame
+			function numSlideFun2() {
+				numText2 += 6.5; // 速度的计算可以为小数
+				if(numText2 >= maxNum2) {
+					numText2 = maxNum2;
+					cancelAnimationFrame(golb2);
+				} else {
+					golb2 = requestAnimationFrame(numSlideFun2);
+				}
+				numBox2.innerHTML = ~~(numText2)
+
+			}
+			numSlideFun2();
+		}
+		// 运行
+		numRunFun2(1000, 1888)
+		
+	</script>
+
+</html>

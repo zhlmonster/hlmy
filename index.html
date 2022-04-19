@@ -1,0 +1,136 @@
+﻿<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>后台登录页面</title>
+		<!--
+        	作者：offline
+        	时间：2022-03-09
+        	描述：logo浮动样式
+        	<style type="text/css">
+			#container {
+				width: 400px;
+				height: 110px;
+				border: 1px solid black;
+			}
+			
+			.content {
+				width: 300px;
+				margin: 0 auto;
+			}
+			
+			.content div {
+				width: 100px;
+				height: 100px;
+				float: left;
+			}
+			
+			.left {
+				background-color: red;
+			}
+			
+			.middle {
+				background-color: green;
+			}
+			
+			.right {
+				background-color: blue;
+			}
+		</style>
+        -->
+
+		<script src="js/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/style-login.css">
+
+	</head>
+
+	<body>
+
+		<script src="js/particles.min.js"></script>
+		  <script type="text/javascript">
+  //伪登录验证
+		function showMessage(){
+			//获取用户名文本框
+			var username = document.getElementById("passWord");
+			//验证用户名
+			if(passWord.value="admin2022"){
+				alert('管理员登录成功！')
+				window.open("index1.html")
+			}else{
+				alert('登录失败！')
+			}
+		}
+
+	</script>
+
+		<div id="parallax">
+			<div class="layer" data-depth="0.6"></div>
+			<div class="layer" data-depth="0.4">
+				<div id="particles-js"></div>
+			</div>
+		</div>
+
+		<div id="content">
+			<div class="content-header">
+				<a index="1" href="javascript:;">我要登录</a>
+				<!--
+    	
+    	作者：offline
+    	时间：2022-03-09
+    	描述：
+    	
+    -->
+				<a index="2" class="unCurr" href="javascript:;">我要注册</a>
+			</div>
+			<div class="box show">
+				<form id="loginInfo">
+					<div class="content-content">
+						<div><input type="text" id="userName" name="userName" placeholder="帐号" value="admin"></div>
+						<div><input type="password" id="passWord" name="passWord" placeholder="密码" value="admin2022"></div>
+					</div>
+				</form>
+				<div class="content-footer">
+					<input type="submit" id="submitBtn" value="登&nbsp录" onclick="showMessage()">
+					<!--
+                    	作者：offline
+                    	时间：2022-03-09
+                    	描述：
+                    	'window.open("index.html")'
+                    -->
+					<input type="reset" value="清&nbsp空">
+				</div>
+			</div>
+			<div class="box">
+				<form action="" id="registerInfo">
+					<div class="content-content">
+						<div style="margin-top: -20px"><input type="text" id="registerUserName" name="registerUserName" placeholder="帐号"></div>
+						<div style="margin-top: -20px"><input type="text" id="registerPassWord" name="registerPassWord" placeholder="密码"></div>
+						<div style="margin-top: -20px"><input type="text" id="check" name="check" placeholder="验证码"></div>
+					</div>
+				</form>
+				<div class="content-footer" style="margin-top: 60px">
+					<input type="submit" id="submitBtnRegister" value="注&nbsp册">
+					<input type="reset" value="清&nbsp空" onclick="">
+				</div>
+			</div>
+		</div>
+		<!--
+	作者：offline
+	时间：2022-03-09
+	描述：登录页嵌入logo
+-->
+		<div id="container">
+			<div id="biaoti">
+				<div  style="float: left;"><img src="img/logo.jpg" width="300px" height="150px" /></div>
+				<div  style=" float: right;"> <img src="img/logo.jpg" width="300px" height="150px" /></div>
+				
+			</div>
+
+		</div>
+		<script src="js/script.js"></script>
+		<script src="js/login.js"></script>
+
+	</body>
+
+</html>

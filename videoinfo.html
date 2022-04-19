@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+		<style type=text/css>
+			#demo a {
+				width: 100%;
+				overflow: hidden;
+				font: 20px/16px tahoma;
+				display: block;
+				text-decoration: none;
+				margin: 5px;
+				color: crimson;
+				padding-left: 2px;
+				text-align: center;
+			}
+			
+			#demo a:hover {
+				color: #ff6600;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<div style="float: left; color: chartreuse; text-align: center; width: 100px; height: 60px; background-color: blueviolet"><br/>
+				<a href="index1.html" style=" text-decoration: none;">
+					<h2>返回首页</h2></a>
+			</div>
+			<h1>海禄牧业种牛信息档案</h1>
+			<div class="show-time"></div>
+			<script>
+				var t = null;
+				t = setTimeout(time, 1000); //开始运行
+				function time() {
+					clearTimeout(t); //清除定时器
+					dt = new Date();
+					var y = dt.getFullYear();
+					var mt = dt.getMonth() + 1;
+					var day = dt.getDate();
+					var h = dt.getHours(); //获取时
+					var m = dt.getMinutes(); //获取分
+					var s = dt.getSeconds(); //获取秒
+					document.querySelector(".show-time").innerHTML =
+						"当前时间：" +
+						y +
+						"年" +
+						mt +
+						"月" +
+						day +
+						"日-" +
+						h +
+						"时" +
+						m +
+						"分" +
+						s +
+						"秒";
+					t = setTimeout(time, 1000); //设定定时器，循环运行
+				}
+			</script>
+		</header>
+
+		<section class="mainbox">
+			<!-- 左侧盒子 -->
+			<div class="column" style="float: left;">
+				<div class="panel pie">
+					<!--
+         	作者：offline
+         	时间：2022-03-10
+         	描述：
+         	<h2>种牛图片</h2>
+         --><br />
+					<div class="chart">
+						<a href="index1.html"><img src="images/gelichang.jpg" width="450px" height="250px"></a>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+				<br /><br /><br /><br /><br /><br /><br /><br />
+				<div class="panel pie">
+					<!--
+          	作者：offline
+          	时间：2022-03-10
+          	描述：
+          --><br />
+					<div class="chart" >
+						<div id="chart1" style="width:450px; height: 260px;"></div>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+			<!-- 中间盒子 -->
+			<div class="column">
+				<!--<h1 style="color: red;">aaaaaaaaaaaa</h1>-->
+				<!-- 头部 no模块 -->
+
+				<!-- map模块 -->
+				<div class="map">
+					<div class="map1"></div>
+					<div class="map2"></div>
+					<div class="map3"></div>
+					<div class="chart"></div>
+					<div class="no">
+						<div class="no-hd">
+							<br />
+							<!--
+              	作者：offline
+              	时间：2022-03-09
+              	描述：h5播放视频
+              -->
+							<video width="748px" height="350px" controls autoplay loop poster="img/logo.jpg">
+								<!--
+              	作者：offline
+              	时间：2022-03-09
+              	描述：<source src="video/halo30.m4v" type="video/m4v"></source>
+              -->
+								<source src="xcp.webm" type="video/webm"></source>
+							</video>
+							&nbsp;<br />
+						</div>
+						<br />
+						<!--
+                        	作者：offline
+                        	时间：2022-03-09
+                        	描述：
+                        		<div class="no-hd">
+							啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+						</div>
+                        -->
+
+						<div class="no-hd" style="font-size: 22px; color: wheat; float: left;">
+							<br />
+							<br />
+							<br />
+							<h1 style="  font-size: 60px; "><a href="index1.html" style="text-decoration: none; color: gainsboro;">海禄牧业 （天津）有限公司</a></h1>
+							<h2 align="center"> </h2>
+							<br />
+							<br />
+							<br />
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- 右侧盒子 -->
+			<div class="column" style="color: wheat;">
+
+				<div class="panel bar2">
+					<h2><b>种牛档案</b></h2>
+					<div class="chart">
+						<div  style="font-size: 20px; color: wheat; float: right;">
+
+						牛号：14982 <br /> 性别：母<br /> 年龄：2.5岁 <br /> 国籍：澳大利亚<br /> 胎次：1 <br /> 重量：600KG<br /> 位置：天津市滨海新区太平镇海禄牧场
+
+						<br /> 负责人：张三
+						<br /> 联系电话：***********
+						<br /><br /></div>
+					</div>
+
+					<div class="panel-footer"></div>
+
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<div class="panel bar2"><br />
+					<h2><b>提醒事件</b></h2>
+					<div class="chart">
+						<div id="demo" style="overflow:hidden;height:132px;width:420px; border:1px; text-align: center; ">
+							<div id="demo1">
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+
+								<a href="#">牛号14982疫苗接种已完成</a>
+							</div>
+							<div id="demo2"></div>
+						</div>
+					</div>
+					<div class="panel-footer"></div>
+				</div>
+
+				<div>
+
+					<!--
+                <div >
+                	<br />
+                	产地及分布：<br />
+安格斯肉牛是英国古老的肉用品种之一。原产于苏格兰北部的阿佰丁，金卡和安格斯郡．并因此得名。 1892 年良种登记，宜布良种肉用品种。与英国的卷毛加罗韦牛亲缘关系密切。目前分布于世界各地，是英国、美国、加拿大、新西兰和阿根廷等国的主要牛种之一，在澳大利亚、南非、巴西、丹安麦、娜威、瑞典、西班牙、德国等国有一定的数量分布。<br /><br />
+
+外貌特征：<br />
+安格斯牛以被毛黑色和无角为其重要特征，故也称其为无角黑牛。部分牛只腹下，脐部和乳房部有白筑，其出现率约占 40 % ，不作为品种缺陷。红色安格斯牛被毛红色，与黑色安格斯牛在体躯结构和生产性能方面没有大的差异：安格斯牛体型较小，体驱低矮，体质紧凑、结实。头小而方正，头额部宽而额顶突起，眼器大而明亮，灵活有神。瞒宽阔，口裂较深，上下唇整齐，梁正直，鼻孔较大，鼻镜较宽，颜色为黑色。颈中等长且较厚，垂皮明显，背线平直，腰荐丰满，体躯宽深，呈圆简状，四肢短而直，且两前肢、两后肢间距均较宽，体形星长方形。全身肌亮滋润。肉丰满，体驱平滑丰润楼和尻部肌肉发达，大腿肌肉延伸到飞节。皮肤松软，富弹性，被毛光亮滋润。<br /><br />
+生产性能：<br />
+安格斯犊牛平均初生重25一32公斤，具有良好的增重性能，日增重 950 一 1 000 克。安格斯牛成年公牛平均体重为700 一900公斤，高的可达1000 公斤，母牛 500一600公斤。成年体高公母牛分别为 138 厘米和 122 厘米。<br /><br />
+
+产肉性能方面：<br />
+肉用性能良好，表现早熟易肥、饲料转化率高，服体品质好、净肉率高、大理石花纹明显，屠宰率 60 ％一 65 ％。<br /><br />
+
+产奶性能方面：<br />
+安格斯母牛乳房结构紧凑，泌乳力强，产乳爪量639 公斤，乳脂率 3 . 94 ％。该品种早熟易配、性能温和、易管理、体质紧凑、结实、易放牧、肉质好、出肉率高。 <br /><br />
+                </div>
+						 -->
+				</div>
+
+		</section>
+		
+		<script>
+			var speed = 40
+			var demo = document.getElementById("demo");
+			var demo2 = document.getElementById("demo2");
+			var demo1 = document.getElementById("demo1");
+			demo2.innerHTML = demo1.innerHTML //拷贝赋值
+			function Marquee() {
+				//第二列表高度 减去 外边框最顶部  小于等于 0
+				if(demo2.offsetTop - demo.scrollTop <= 0)
+					// 则外边框顶部滚动高度 去减去   第一列表高度顶部 ,或者去当滚动高度大于列表内容高度时恢复为0
+					demo.scrollTop -= demo1.offsetHeight
+				else {
+					//外边框+1
+					demo.scrollTop++
+				}
+			}
+			var MyMar = setInterval(Marquee, speed)
+			demo.onmouseover = function() {
+				clearInterval(MyMar)
+			}
+			demo.onmouseout = function() {
+				MyMar = setInterval(Marquee, speed)
+			}
+			console.log('demo2.offsettop', demo2.offsetTop) //191
+			console.log('demo.scrolltop', demo.scrollTop) //0
+			console.log('demo1.offsetHeight', demo1.offsetHeight) //178
+		</script>
+
+		<script src="js/flexible.js"></script>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/jquery.js"></script>
+		<script src="js/china.js"></script>
+		<script type="text/javascript" src="js/zhexian.js" ></script>
+		<!--
+        	作者：offline
+        	时间：2022-03-09
+        	描述：
+        	<script src="js/index.js"></script>
+        -->
+
+	</body>
+
+</html>

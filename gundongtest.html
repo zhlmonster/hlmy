@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type=text/css>
+			#demo a {
+				width: 100%;
+				overflow: hidden;
+				font: 12px/16px tahoma;
+				display: block;
+				text-decoration: none;
+				margin: 2px;
+				color: #4a551c;
+				padding-left: 2px;
+				text-align: left;
+			}
+			
+			#demo a:hover {
+				color: #ff6600;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="demo" style="overflow:hidden;height:132px;width:350px; border:1px solid #dde5bc; background-color: #DFDFDF;">
+			<div id="demo1">
+				<a href="#">测试数据1111。。。</a>
+				<a href="#">测试数据1111...</a>
+				<a href="#">测试数据1111…</a>
+				<a href="#">测试数据1111…</a>
+				<a href="#">测试数据1111…</a>																												
+				<a href="#">测试数据1111…</a>
+				<a href="#">测试数据1111…</a>
+				<a href="#">测试数据1111…</a>
+				<a href="#">测试数据1111…</a>
+				<a href="#">测试数据1111…</a>
+			</div>
+			<div id="demo2"></div>
+		</div>
+		<script>
+			var speed = 40
+			var demo = document.getElementById("demo");
+			var demo2 = document.getElementById("demo2");
+			var demo1 = document.getElementById("demo1");
+			demo2.innerHTML = demo1.innerHTML //拷贝赋值
+			function Marquee() {
+				//第二列表高度 减去 外边框最顶部  小于等于 0
+				if(demo2.offsetTop - demo.scrollTop <= 0)
+					// 则外边框顶部滚动高度 去减去   第一列表高度顶部 ,或者去当滚动高度大于列表内容高度时恢复为0
+					demo.scrollTop -= demo1.offsetHeight
+				else {
+					//外边框+1
+					demo.scrollTop++
+				}
+			}
+			var MyMar = setInterval(Marquee, speed)
+			demo.onmouseover = function() {
+				clearInterval(MyMar)
+			}
+			demo.onmouseout = function() {
+				MyMar = setInterval(Marquee, speed)
+			}
+			console.log('demo2.offsettop', demo2.offsetTop) //191
+			console.log('demo.scrolltop', demo.scrollTop) //0
+			console.log('demo1.offsetHeight', demo1.offsetHeight) //178
+		</script>
+	</body>
+
+</html>
