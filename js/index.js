@@ -279,13 +279,13 @@
     series: [{
         type: 'line',
         smooth: true, // 圆滑的线
-        name: '新增牛头数',
+        name: '存栏量',
         data: yearData[0].data[0]
       },
       {
         type: 'line',
         smooth: true, // 圆滑的线
-        name: '出栏牛头数',
+        name: '出栏量',
         data: yearData[0].data[1]
       }
     ]
