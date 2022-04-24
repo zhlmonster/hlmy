@@ -18,7 +18,7 @@
 				//验证用户名
 				//if(sosuo.value != null) {
 				//	alert('搜索成功！')
-					window.open("videoinfo.html")
+				window.open("videoinfo.html")
 				//} else {
 				//	alert('搜索失败！')
 				//}
@@ -26,8 +26,7 @@
 		</script>
 		<div>
 
-			<div style="font-family: '黑体'; font-size: 80px; color: lightblue;"
-				<a>海禄牧业种牛信息平台</a>
+			<div style="font-family: '黑体'; font-size: 80px; color: lightblue;" <a>海禄牧业种牛信息平台</a>
 			</div>
 			<br />
 			<br />
@@ -35,14 +34,24 @@
 			<br />
 			<br />
 			<br />
-			<div class="type-ahead" style="float: right;">
-				<input type="text" id="sosuo" class="type-ahead__input" placeholder="输入：耳号XXXX X为数字" value="耳号14982" >
-				<svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" onclick="showMessage()">
-					<path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
-				</svg>
-				<ul class="type-ahead__suggestions hidden"></ul>
+			<!--div嵌套实现搜索框居中-->
+			<!--大div-->
+			<div style="width: 918px; height: 50px;">
+				<!--嵌套第一个小div-->
+				<div style="width: 300px; height: 50px; float: left;"></div>
+				<!--嵌套第二个-->
+				<div style="width: 300px; height: 50px;  float: left;">
+					<div class="type-ahead" style="float: right; position: absolute; margin: auto;">
+						<input type="text" id="sosuo" class="type-ahead__input" placeholder="输入：耳号XXXX X为数字" value="耳号14982">
+						<svg class="icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" onclick="showMessage()">
+							<path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+						</svg>
+						<ul class="type-ahead__suggestions hidden"></ul>
+					</div>
+				</div>
+				<!--嵌套第三个-->
+				<div style="width: 300px; height: 50px;  float: left;"></div>
 			</div>
-
 		</div>
 
 		<script src="js/script2.js"></script>
